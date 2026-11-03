@@ -5,6 +5,14 @@
     <title>Title</title>
 </head>
 <body>
+<header>
+    <nav>
+        <a th:href="@{/home}">Home</a> |
+        <a th:href="@{/books}">All books</a> |
+        <a th:href="@{/genre}">Find by genre</a>
+    </nav>
+    <hr>
+</header>
 <h1>Find book</h1>
 <form th:action="@{/genre}" method="get">
     <label for="genre">Choose genre:</label>
@@ -13,11 +21,27 @@
         <option value="Fantasy">Fantasy</option>
         <option value="Romance">Romance</option>
         <option value="Science Fiction">Science Fiction</option>
-        <option value="Children">Science Fiction</option>
-        <option value="History"> History</option>
+        <option value="Children">Children</option>
+        <option value="History">History</option>
 
     </select>
     <button type="submit">Filter</button>
 </form>
+
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Genre</th>
+    </tr>
+    <tr th:each="book : ${books}">
+        <td th:text="${book.title}"></td>
+        <td th:text="${book.author}"></td>
+        <td th:text="${book.genre}"></td>
+    </tr>
+</table>
+<p th:if="${#lists.isEmpty(books)}">
+    We don't yet have any books in this genre. Feel free to contact us with any book requests.
+</p>
 </body>
 </html>

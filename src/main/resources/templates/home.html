@@ -5,9 +5,17 @@
     <title>Home</title>
 </head>
 <body>
-    <h1>Welcome to the Book club!</h1>
-    <p>Today's date is:</p>
-    <span th:text="${date}"></span>
+<header>
+    <nav>
+        <a th:href="@{/home}">Home</a> |
+        <a th:href="@{/books}">All books</a> |
+        <a th:href="@{/genre}">Find by genre</a>
+    </nav>
+    <hr>
+</header>
+<h1>Welcome to the Book club!</h1>
+<p>Today's date is:</p>
+<span th:text="${date}"></span>
 
 </body>
 </html>
