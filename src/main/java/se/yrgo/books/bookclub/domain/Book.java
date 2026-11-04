@@ -1,5 +1,6 @@
 package se.yrgo.books.bookclub.domain;
 
+
 public class Book {
     private String title;
     private String author;
